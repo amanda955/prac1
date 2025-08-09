@@ -19,11 +19,11 @@ CHIP Xor {
     notB = NAND(b, b)
     Nand(a=b, b=b, out=notb);
 
-    aAndNotB = NAND(a, notB), 
+    aAndNotB = NAND(a, notB), then invert results
     Nand(a=a, b=notb, out=anb);
     Nand(a=anb, b=anb, out=aAndNotB);
 
-    notAAndB = NAND(nota, b), 
+    notAAndB = NAND(nota, b), then invert results
     Nand(a=nota, b=b, out=nab);
     Nand(a=nab, b=nab, out=notAAndB);
 
@@ -32,3 +32,4 @@ CHIP Xor {
     Nand(a=nor, b=nor, out=out);
 
 }
+
