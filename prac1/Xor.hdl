@@ -26,10 +26,12 @@ CHIP Xor {
     Nand(a=nab, b=nab, out=notAAndB);
 
     
-    Nand(a=aAndNotB, b=notAAndB, out=nor);
-    Nand(a=nor, b=nor, out=out);
+    Nand(a=aAndNotB, b=aAndNotB, out=oa);
+    Nand(a=NotAAndB, b=NotAAndB, out=ob);
+    Nand(a=oa, b=ob, out=out);
 
 }
+
 
 
 
