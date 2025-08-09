@@ -13,23 +13,22 @@ CHIP Xor {
     OUT out;
 
     PARTS:
-    notA = NAND(a, a)
+    
     Nand(a=a, b=a, out=nota);
+    Nand(a=b, b=a, out=notb);
 
-    notB = NAND(b, b)
-    Nand(a=b, b=b, out=notb);
-
-    aAndNotB = NAND(a, notB), then invert results
+    
     Nand(a=a, b=notb, out=anb);
     Nand(a=anb, b=anb, out=aAndNotB);
 
-    notAAndB = NAND(nota, b), then invert results
+    
     Nand(a=nota, b=b, out=nab);
     Nand(a=nab, b=nab, out=notAAndB);
 
-    out = NAND(NAND(aAndNotB, notAAndB)) => OR gate
+    
     Nand(a=aAndNotB, b=notAAndB, out=nor);
     Nand(a=nor, b=nor, out=out);
 
 }
+
 
